@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <li>
+            <a href="{% url 'buah:tambah' %}">Tambah</a>
+        </li>
+    </ol>
+    
+    <table>
+        <tr>
+            <th>Nomor</th>
+            <th>Nama Buah</th>
+            <th>Gambar</th>
+            <th>Keterangan</th>
+        </tr>
+        {% for buah in object_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'buah:detail' buah.id %}">{{ buah.nama }}</a> | <a href="{% url 'buah:ubah' buah.id %}">Edit</a></td>
+            <td><img src="{{ buah.gambar.url }}"></td>
+            <td>{{ buah.keterangan }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

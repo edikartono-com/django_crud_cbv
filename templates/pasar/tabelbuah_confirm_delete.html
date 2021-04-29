@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hapus Buah</title>
+</head>
+<body>
+    <h1>{{ object.nama }} akan dihapus</h1>
+    <p>Apakah benar buah tersebut akan dihapus?</p>
+    <p>Semua data yang berkaitan dengan {{ object }} juga akan dihapus permanen</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Hapus permanen</button>
+    </form>
+</body>
+</html>
